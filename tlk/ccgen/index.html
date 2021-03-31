@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TLK Tools</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="../js/scripts.js"></script>
+</head>
+<body>
+<iframe name="hiddenFrame" width="0" height="0" border="0" style="display: none;"></iframe>
+<form method="POST" action="/ccgen"  id="content" class="content" target="hiddenFrame">
+    <div>
+        <h1>CCGen</h1>
+        <label for='cc'>BIN: </label><input type="text" name="cc" id='cc' value=''>
+        </br>
+        <button type="submit" id='generar-cc' onclick="activeBin=document.getElementById('cc').value;getServerResponse(true)">Generate</button>
+        </br>
+        </br>
+        <label id='r'> </label>
+    </div>
+
+</form>
+</body>
+</html>
