@@ -1,11 +1,22 @@
 let activeBin = ""
+let activeHTML = ""
 
-function getServerResponse(ccgen = false) {
+
+async function getServerResponse(ccgen = false) {
     let fetch = setInterval(function () {
         const response = document.querySelector("body > iframe").contentDocument.querySelector("body > h1")
-        if (response && (!ccgen || response.innerHTML.startsWith(activeBin) === true)) {
+        if (response && (!ccgen || response.innerHTML.startsWith(activeBin) === true )) {
             document.querySelector("#r").innerHTML = response.innerHTML
+            activeHTML = document.querySelector("#r").innerHTML
             clearInterval(fetch)
+
+            jQuery(function($) {
+                var $ed = $('#editor')
+                    , $style = $('#styles')
+                ;
+                $ed.val($style.html());
+                $style.html($ed.val());
+            });
         }
     }, 10)
 }

@@ -7,6 +7,10 @@ body {
 	outline: none;
 }
 
+.disable-dbl-tap-zoom {
+	touch-action: manipulation;
+}
+
 
 @font-face {
 	font-family: Menlo;
@@ -26,7 +30,7 @@ p, label {
 	color: rgb(177,177,177);
 	font-family: Menlo;
 	font-weight:normal;
-	font-size:12px;
+	font-size:15px;
 }
 
 h1 {

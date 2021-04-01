@@ -21,8 +21,8 @@ App.post( '/extrapolar', function( req, res ) {
     };
 
     PythonShell.run('extrapolador.py',options, function(err,results) {
-        if(err) throw err;
-        if ((results[0]) !== "Error") {
+        // if(err) throw err;
+        if (results && (results[0]) !== "Error") {
             res.send("<h1>" + results[0] + "\n" + results[1] +  "\n" + results[2] + "</h1>")
             res.end()
         }
@@ -45,8 +45,8 @@ App.post( '/ccgen', function( req, res ) {
     };
 
     PythonShell.run('ccgen.py',options, function(err,results) {
-        if(err) throw err;
-        if ((results[0]) !== "Error") {
+        // if(err) throw err;
+        if (results && (results[0]) !== "Error") {
             res.send("<h1>" + results[0] + "\n" + results[1] +  "\n" + results[2] + "</h1>")
             res.end()
         } else {
