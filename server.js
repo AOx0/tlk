@@ -3,6 +3,7 @@ const Express = require( 'express' );
 const path = require("path");
 const App = Express();
 const {PythonShell} = require('python-shell');
+const port = 80
 
 // Parse request of content-type - application/x-www-form-urlencoded
 
@@ -33,35 +34,12 @@ App.post( '/extrapolar', function( req, res ) {
 
 App.post( '/ccgen', function( req, res ) {
     console.log(req.body);
-
-    let cc = String(req.body.cc)
-    while (cc.length !== 16) { cc += "x" }
-
-    let options = {
-        mode: 'text',
-        pythonOptions: ['-u'],
-        scriptPath: __dirname + '/tlk/python',
-        args: cc
-    };
-
-    PythonShell.run('ccgen.py',options, function(err,results) {
-        // if(err) throw err;
-        if (results && (results[0]) !== "Error") {
-            res.send("<h1>" + results[0] + "\n" + results[1] +  "\n" + results[2] + "</h1>")
-            res.end()
-        } else {
-            console.log("Error")
-        }
-        res.end()
-
-    });
-} );
+});
 
 App.use('/', function(req,res){
     res.sendFile(path.join(__dirname+'/tlk/index.html'))
 })
 
-const port = 8080
 App.listen( port, () => {
     console.log( "Server Run:" + port );
 } );

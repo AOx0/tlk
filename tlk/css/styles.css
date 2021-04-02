@@ -11,6 +11,7 @@ body {
 	touch-action: manipulation;
 }
 
+html, body {margin: 0; height: 100%; overflow-x: hidden}
 
 @font-face {
 	font-family: Menlo;
@@ -26,19 +27,37 @@ body {
 	src: local('Menlo'), url('../fonts/Menlo-Bold.woff') format('woff');
 }
 
-p, label {
+p, label, h1, #r, .content, input, button, span, select  {
 	color: rgb(177,177,177);
-	font-family: Menlo;
+	font-family: Menlo, serif;
+	font-size: 12px;
+}
+
+select::-ms-expand {
+	display: none;
+}
+
+select {
+	box-sizing: border-box;
+	-webkit-appearance: none;
+	background-color: transparent;
+	border: none;
+	align-items: center;
+	white-space: pre;
+	-webkit-rtl-ordering: logical;
+	cursor: default;
+}
+
+select::-ms-backdrop {
+	color: transparent;
+}
+
+p, label {
 	font-weight:normal;
-	font-size:15px;
 }
 
 h1 {
-
-	color: rgb(177,177,177);
-	font-family: Menlo;
 	font-weight:bold;
-	font-size:20px;
 	background-color: rgb(26,26,26);
 	padding-bottom: 15px;
 }
@@ -50,15 +69,11 @@ input , button {
 	padding-left: 0;
 	padding-right: 0;
 	background-color: rgb(26,26,26);
-	color: rgb(177,177,177);
-
-	font-family: Menlo;
 	font-weight:bold;
-	font-size:12px;
 }
 
 input {
-	max-width: 125px;
+	max-width: 16ch;
 }
 
 button {
@@ -70,17 +85,14 @@ button {
     display: flex;
     flex-direction: column;
     min-height: 90vh;
+	min-width: 100vw;
     align-items: center;
     justify-content: center;
 }
 
 @media (max-aspect-ratio: 3/4), (max-width: 300px) {
-  	.content {
-    	min-height: none;
-    	min-width: 100vw;
-		zoom: 3;
-    	-moz-transform: scale(3);
-    	-moz-transform-origin: 0 0;
+	p, label, h1, #r, .content, input, button, span, select  {
+		font-size: 3vw;
 	}
 }
 
@@ -100,4 +112,13 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type=number] {
 	-moz-appearance: textfield;
+}
+
+.inputt {
+	max-width: 3ch;
+	font-weight:normal;
+}
+
+.inputt, input {
+	scroll-behavior: unset;
 }

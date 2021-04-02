@@ -9,14 +9,6 @@ async function getServerResponse(ccgen = false) {
             document.querySelector("#r").innerHTML = response.innerHTML
             activeHTML = document.querySelector("#r").innerHTML
             clearInterval(fetch)
-
-            jQuery(function($) {
-                var $ed = $('#editor')
-                    , $style = $('#styles')
-                ;
-                $ed.val($style.html());
-                $style.html($ed.val());
-            });
         }
     }, 10)
 }

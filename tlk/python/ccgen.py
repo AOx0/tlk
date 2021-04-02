@@ -11,8 +11,9 @@ from random import randint
 
 def luhn(card_number):
     num = list(map(int, str(card_number)))
-    return sum(num[::-2] + [sum(divmod(d * 2, 10))
-                            for d in num[-2::-2]]) % 10 == 0
+    return sum(
+        num[::-2] + [sum(divmod(d * 2, 10)) for d in num[-2::-2]]
+                            ) % 10 == 0
 
 
 def ccvgen():
