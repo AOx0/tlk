@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test_ccgen": "node tlk/python/ccgen.js",
-    "start": "node server.js"
+    "start": "node server.js >> log"
   },
   "keywords": [],
   "author": "",

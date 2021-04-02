@@ -1,17 +1,22 @@
 const BodyParser = require( 'body-parser' );
 const Express = require( 'express' );
 const path = require("path");
-const App = Express();
+const app = Express();
 const {PythonShell} = require('python-shell');
 const port = 80
 
+// favicon
+
+var favicon = require('serve-favicon');
+app.use(favicon(__dirname + '/tlk/images/favicon.png'));
+
 // Parse request of content-type - application/x-www-form-urlencoded
 
-App.use(BodyParser.json());
-App.use( BodyParser.urlencoded( { extended: true } ) );
-App.use(Express.static(__dirname+'/tlk'))
+app.use(BodyParser.json());
+app.use( BodyParser.urlencoded( { extended: true } ) );
+app.use(Express.static(__dirname+'/tlk'))
 
-App.post( '/extrapolar', function( req, res ) {
+app.post( '/extrapolar', function( req, res ) {
     console.log(req.body);
 
     let options = {
@@ -32,15 +37,15 @@ App.post( '/extrapolar', function( req, res ) {
     });
 } );
 
-App.post( '/ccgen', function( req, res ) {
+app.post( '/ccgen', function( req, res ) {
     console.log(req.body);
 });
 
-App.use('/', function(req,res){
+app.use('/', function(req,res){
     res.sendFile(path.join(__dirname+'/tlk/index.html'))
 })
 
-App.listen( port, () => {
+app.listen( port, () => {
     console.log( "Server Run:" + port );
 } );
 
