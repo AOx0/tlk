@@ -122,7 +122,19 @@ class CCGenFormatting {
     }
 }
 
+function sumbitCVV() {
+    if (/\d\d\d/.test(document.getElementById("cvv").value) || document.getElementById("cvv").value === "rnd")  {
+        return 1
+    } else {
+        document.getElementById("cvv").value = "rnd"
+        return -1
+    }
+}
+
 function generateCCs() {
+    if (sumbitCVV() === -1) {
+        return
+    }
     var fvMonth, fvYear, cvv;
     fvMonth = document.getElementById("month").value === "rnd" ? undefined : document.getElementById("month").value
     fvYear = document.getElementById("year").value === "rnd" ? undefined : document.getElementById("year").value
@@ -136,12 +148,9 @@ function generateCCs() {
         times: Number(document.getElementById("cantidad").value),
         formatting: CCGenFormatting.checker
     })
+
+
 }
 
-window.onload = () => {
-    for (var i=1; i<1000; i++) {
-        document.getElementById("cvv").innerHTML += `\n<option>${i}</option>`
-    }
-}
 
 

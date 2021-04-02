@@ -46,9 +46,7 @@
             &nbsp;
             <span>
                 <label for="cvv">CVV: </label>
-                <select id="cvv" name="cvv">
-                  <option selected="">rnd</option>
-                </select>
+                <input class="inputt" type="text" id="cvv" name="cvv" value="rnd" maxlength="3" minlength="3">
             </span>
         </div>
         </br>
@@ -65,7 +63,7 @@
             </select>
         </span>
         &nbsp;
-        <label for='cc'>BIN: </label><input type="text" name="cc" id='cc' value='' maxlength="16"></br>
+        <label for='cc'>BIN: </label><input type="text" name="cc" id='cc' value='' maxlength="16"></br></br>
         <button type="submit" id='generar-cc' onclick="generateCCs()">Generate</button>
         </br>
         </br>
