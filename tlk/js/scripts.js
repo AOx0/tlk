@@ -1,18 +1,3 @@
-let activeBin = ""
-let activeHTML = ""
-
-
-async function getServerResponse(ccgen = false) {
-    let fetch = setInterval(function () {
-        const response = document.querySelector("body > iframe").contentDocument.querySelector("body > h1")
-        if (response && (!ccgen || response.innerHTML.startsWith(activeBin) === true )) {
-            document.querySelector("#r").innerHTML = response.innerHTML
-            activeHTML = document.querySelector("#r").innerHTML
-            clearInterval(fetch)
-        }
-    }, 10)
-}
-
 document.onkeypress = function (e) {
     switch (e.key) {
         case "Enter":

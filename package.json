@@ -4,6 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
+    "test_extra": "node tlk/python/extrapolador.js",
     "test_ccgen": "node tlk/python/ccgen.js",
     "start": "node server.js >> log"
   },
@@ -13,6 +14,7 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
+    "express-ip": "^1.0.4",
     "mysql": "^2.18.1"
   },
   "devDependencies": {
