@@ -30,7 +30,7 @@ html, body {margin: 0; height: 100%; overflow-x: hidden}
 p, label, h1, #r, .content, input, button, span, select  {
 	color: rgb(177,177,177);
 	font-family: Menlo, serif;
-	font-size: 12px;
+	font-size: 16px;
 }
 
 select::-ms-expand {
@@ -89,6 +89,7 @@ button {
     align-items: center;
     justify-content: center;
 }
+
 
 @media (max-aspect-ratio: 3/4), (max-width: 300px) {
 	p, label, h1, #r, .content, input, button, span, select  {
